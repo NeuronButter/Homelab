@@ -1,60 +1,97 @@
 {
-	"version": "2",
-	"templates": [
-		{
-			"type": 3,
-			"title": "HTPC",
-			"description": "Home Theatre Essentials",
-			"platform": "linux",
-			"logo": "https://b.thumbs.redditmedia.com/Flac-ySmslzY0SE583PNA42rFbcYxLt7hqgCeUrC11s.png",
-			"repository": {
-				"url": "https://github.com/NeuronButter/Homelab",
-				"stackfile": "stacks/htpc.yaml"
-			},
-			"env": [
-				{
-					"name": "TZ",
-					"label": "Timezone",
-					"description": "A timezone from the tz database",
-					"default": "Australia/Sydney"
-				},
-				{
-					"name": "PUID",
-					"label": "User ID",
-					"description": "The user ID to run the container as",
-					"default": "1000"
-				},
-				{
-					"name": "PGID",
-					"label": "Group ID",
-					"description": "The group ID to run the container as",
-					"default": "1000"
-				},
-				{
-					"name": "CONFIG",
-					"label": "Config directory",
-					"description": "The directory to store configuration files for each service",
-					"default": "/home/neeron/htpc"
-				},
-				{
-					"name": "STORAGE",
-					"label": "Storage directory",
-					"description": "The directory to store media in",
-					"default": "/mnt/storage"
-				},
-				{
-					"name": "THEMEPKG",
-					"label": "Theme package",
-					"description": "The package to use for the themes",
-					"default": "ghcr.io/gilbn/theme.park"
-				},
-				{
-					"name": "THEMENAME",
-					"label": "Name of theme",
-					"description": "The name of the theme to use",
-					"default": "hotpink"
-				}
-			]
-		}
-	]
+  "version": "2",
+  "templates": [
+    {
+      "type": 3,
+      "title": "HTPC",
+      "description": "Home Theatre Essentials",
+      "platform": "linux",
+      "logo": "https://b.thumbs.redditmedia.com/Flac-ySmslzY0SE583PNA42rFbcYxLt7hqgCeUrC11s.png",
+      "repository": {
+        "url": "https://github.com/NeuronButter/Homelab",
+        "stackfile": "stacks/htpc.yaml"
+      },
+      "env": [
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "description": "A timezone from the tz database",
+          "default": "Australia/Sydney"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "description": "The user ID to run the container as",
+          "default": "1000"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "description": "The group ID to run the container as",
+          "default": "1000"
+        },
+        {
+          "name": "CONFIG",
+          "label": "Config directory",
+          "description": "The directory to store configuration files for each service",
+          "default": "/home/neeron/htpc"
+        },
+        {
+          "name": "STORAGE",
+          "label": "Storage directory",
+          "description": "The directory to store media in",
+          "default": "/mnt/storage"
+        },
+        {
+          "name": "THEMEPKG",
+          "label": "Theme package",
+          "description": "The package to use for the themes",
+          "default": "ghcr.io/gilbn/theme.park"
+        },
+        {
+          "name": "THEMENAME",
+          "label": "Name of theme",
+          "description": "The name of the theme to use",
+          "default": "hotpink"
+        }
+      ]
+    },
+    {
+      "type": 1,
+      "title": "XBackBone",
+      "description": "Deploy XBackBone, a ShareX server",
+      "platform": "linux",
+      "logo": "http://xbackbone.app/img/xbackbone.png",
+      "repository": {
+        "url": "https://github.com/NeuronButter/Homelab",
+        "stackfile": "stacks/xbackbone.yaml"
+      },
+      "env": [
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "description": "A timezone from the tz database",
+          "default": "Australia/Sydney"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "description": "The user ID to run the container as",
+          "default": "1000"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "description": "The group ID to run the container as",
+          "default": "1000"
+        },
+        {
+          "name": "CONFIG",
+          "label": "Config directory",
+          "description": "The directory to store configuration files for XBackBone",
+          "default": "/home/neeron/xbackbone"
+        }
+      ]
+    }
+  ]
 }
