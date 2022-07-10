@@ -61,7 +61,7 @@
       "title": "XBackBone",
       "description": "Deploy XBackBone, a ShareX server",
       "platform": "linux",
-      "logo": "http://xbackbone.app/img/xbackbone.png",
+      "logo": "https://raw.githubusercontent.com/walkxhub/dashboard-icons/master/png/xbackbone.png",
       "repository": {
         "url": "https://github.com/NeuronButter/Homelab",
         "stackfile": "stacks/xbackbone.yaml"
