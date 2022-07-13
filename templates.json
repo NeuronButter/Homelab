@@ -113,7 +113,7 @@
         {
           "name": "CONFIG",
           "label": "Config directory",
-          "description": "The directory to store configuration files for XBackBone",
+          "description": "The directory to store configuration files for HASS",
           "default": "/home/neeron/hass"
         }
       ]
