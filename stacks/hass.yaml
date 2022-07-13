@@ -9,3 +9,4 @@ services:
       - ${CONFIG}:/config
     restart: unless-stopped
     privileged: true
+    network_mode: host
