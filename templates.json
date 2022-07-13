@@ -92,6 +92,31 @@
           "default": "/home/neeron/xbackbone"
         }
       ]
+    },
+    {
+      "type": 1,
+      "title": "Home Assistant",
+      "description": "Deploy Home Assistant, a smart home tool that puts local control and privacy first",
+      "platform": "linux",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Home_Assistant_Logo.svg/1200px-Home_Assistant_Logo.svg.png",
+      "repository": {
+        "url": "https://github.com/NeuronButter/Homelab",
+        "stackfile": "stacks/hass.yaml"
+      },
+      "env": [
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "description": "A timezone from the tz database",
+          "default": "Australia/Sydney"
+        },
+        {
+          "name": "CONFIG",
+          "label": "Config directory",
+          "description": "The directory to store configuration files for XBackBone",
+          "default": "/home/neeron/hass"
+        }
+      ]
     }
   ]
 }

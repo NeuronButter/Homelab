@@ -1,0 +1,11 @@
+version: "3.4"
+services:
+  homeassistant:
+    image: ghcr.io/home-assistant/home-assistant:stable
+    container_name: homeassistant
+    environment:
+      - TZ=${TZ}
+    volumes:
+      - ${CONFIG}:/config
+    restart: unless-stopped
+    privileged: true
