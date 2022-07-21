@@ -117,6 +117,43 @@
           "default": "/home/neeron/hass"
         }
       ]
+    },
+    {
+      "type": 3,
+      "title": "Paperless-ngx",
+      "description": "Document Management System",
+      "platform": "linux",
+      "logo": "https://github.com/walkxhub/dashboard-icons/blob/master/png/paperless-ng.png?raw=true",
+      "repository": {
+        "url": "https://github.com/NeuronButter/Homelab",
+        "stackfile": "stacks/paperless-ngx.yaml"
+      },
+      "env": [
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "description": "The user ID to run the container as",
+          "default": "1000"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "description": "The group ID to run the container as",
+          "default": "1000"
+        },
+        {
+          "name": "CONFIG",
+          "label": "Config directory",
+          "description": "The directory to store configuration files for each service",
+          "default": "/home/neeron/paperless"
+        },
+        {
+          "name": "URL",
+          "label": "Paperless-ngx Hostname",
+          "description": "The hostname that Paperless-ngx will be accessible on",
+          "default": "https://paperless.neeron.me"
+        }
+      ]
     }
   ]
 }
