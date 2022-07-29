@@ -1,0 +1,18 @@
+version: "3.4"
+services:
+  pihole:
+    container_name: pihole
+    image: pihole/pihole:latest
+    network_mode: host
+    environment:
+      - TZ=${TZ}
+      - WEBPASSWORD=password
+      - WEB_PORT={PORT}
+      - VIRTUAL_HOST={DNS_HOST}
+      - CUSTOM_CACHE_SIZE=7500
+    volumes:
+      - '${CONFIG}/pihole:/etc/pihole/'
+      - '${CONFIG}/dnsmasq:/etc/dnsmasq.d/'
+    cap_add:
+      - NET_ADMIN
+    restart: unless-stopped

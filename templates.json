@@ -154,6 +154,43 @@
           "default": "https://paperless.neeron.me"
         }
       ]
+    },
+    {
+      "type": 1,
+      "title": "Pi-Hole",
+      "description": "A DNS server, originally designed for the Raspberry Pi that blocks ads",
+      "platform": "linux",
+      "logo": "https://raw.githubusercontent.com/walkxhub/dashboard-icons/master/png/pihole.png",
+      "repository": {
+        "url": "https://github.com/NeuronButter/Homelab",
+        "stackfile": "stacks/pihole.yaml"
+      },
+      "env": [
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "description": "A timezone from the tz database",
+          "default": "Australia/Sydney"
+        },
+        {
+          "name": "CONFIG",
+          "label": "Config directory",
+          "description": "The directory to store configuration files for Pi-Hole",
+          "default": "/home/neeron/pihole"
+        },
+        {
+          "name": "DNS_HOST",
+          "label": "DNS Hostname",
+          "description": "The hostname that Pi-Hole will be accessible on",
+          "default": "dns.bhatta"
+        },
+        {
+          "name": "PORT",
+          "label": "Web Port",
+          "description": "The port that Pi-Hole will be accessible on",
+          "default": "8081"
+        }
+      ]
     }
   ]
 }
