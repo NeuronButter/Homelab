@@ -191,6 +191,43 @@
           "default": "8081"
         }
       ]
+    },
+    {
+      "type": 1,
+      "title": "Speedtest Tracker",
+      "description": "A tool to continuously track your internet speed",
+      "platform": "linux",
+      "logo": "https://raw.githubusercontent.com/walkxhub/dashboard-icons/master/png/speedtest-tracker.png",
+      "repository": {
+        "url": "https://github.com/NeuronButter/Homelab",
+        "stackfile": "stacks/speedtest.yaml"
+      },
+      "env": [
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "description": "A timezone from the tz database",
+          "default": "Australia/Sydney"
+        },
+        {
+          "name": "CONFIG",
+          "label": "Config directory",
+          "description": "The directory to store configuration files for Pi-Hole",
+          "default": "/home/neeron/speedtest"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "description": "The user ID to run the container as",
+          "default": "1000"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "description": "The group ID to run the container as",
+          "default": "1000"
+        }
+      ]
     }
   ]
 }
