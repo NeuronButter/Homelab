@@ -87,26 +87,6 @@ services:
     depends_on:
       - "vpn"
 
-  speedtest:
-    container_name: speedtest
-    image: henrywhitaker3/speedtest-tracker
-    volumes:
-      - ${CONFIG}/speedtest:/config
-    environment:
-      - TZ=${TZ}
-      - PGID=${PGID}
-      - PUID=${PUID}
-      - OOKLA_EULA_GDPR=true
-      - BASE_PATH=/speed
-    logging:
-      driver: "json-file"
-      options:
-        max-file: "10"
-        max-size: "200k"
-    restart: unless-stopped
-    ports:
-      - 8765:80
-
   qbittorrent:
     image: lscr.io/linuxserver/qbittorrent
     container_name: qbittorrent
