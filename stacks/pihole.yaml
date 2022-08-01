@@ -7,8 +7,8 @@ services:
     environment:
       - TZ=${TZ}
       - WEBPASSWORD=password
-      - WEB_PORT={PORT}
-      - VIRTUAL_HOST={DNS_HOST}
+      - WEB_PORT=8081
+      - VIRTUAL_HOST={HOSTNAME}
       - CUSTOM_CACHE_SIZE=7500
     volumes:
       - '${CONFIG}/pihole:/etc/pihole/'

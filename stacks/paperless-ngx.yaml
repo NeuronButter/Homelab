@@ -39,7 +39,7 @@ services:
     environment:
       - USERMAP_UID=${PUID}
       - USERMAP_GID=${PGID}
-      - PAPERLESS_URL=${URL}
+      - PAPERLESS_URL=${HOSTNAME}
       - PAPERLESS_REDIS=redis://broker:6379
       - PAPERLESS_DBHOST=db
       - PAPERLESS_TIKA_ENABLED=1

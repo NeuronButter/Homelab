@@ -3,9 +3,6 @@ services:
   vpn:
     container_name: vpn
     image: dperson/openvpn-client:latest
-    cap_add:
-      - net_admin
-    restart: unless-stopped
     environment:
       - TZ=${TZ}
       - "DNS=1.1.1.1"
@@ -13,12 +10,15 @@ services:
       - /dev/net:/dev/net:z
       - /dev/net/tun:/dev/net/tun
       - ${CONFIG}/vpn:/vpn
-    security_opt:
-      - label:disable
     ports:
       - 9696:9696 # Prowlarr
       - 6767:6767 # Bazarr
       - 8113:8113 # Qbittorrent
+    restart: unless-stopped
+    cap_add:
+      - net_admin
+    security_opt:
+      - label:disable
 
   prowlarr:
     image: lscr.io/linuxserver/prowlarr:develop
@@ -31,19 +31,18 @@ services:
       - TP_THEME=${THEMENAME}
     volumes:
       - ${CONFIG}/prowlarr:/config
-    network_mode: service:vpn
     restart: unless-stopped
+    network_mode: service:vpn
     depends_on:
       - "vpn"
 
   sonarr:
     container_name: sonarr
     image: linuxserver/sonarr:amd64-latest
-    restart: unless-stopped
     environment:
-      - PUID
-      - PGID
-      - TZ
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
       - DOCKER_MODS=${THEMEPKG}:sonarr
       - TP_THEME=${THEMENAME}
     volumes:
@@ -51,12 +50,12 @@ services:
       - ${CONFIG}/sonarr:/config
       - ${STORAGE}:/storage
     ports:
-      - 8989:8989 # Sonarr
+      - 8989:8989
+    restart: unless-stopped
 
   radarr:
     container_name: radarr
     image: linuxserver/radarr:amd64-latest
-    restart: unless-stopped
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
@@ -68,13 +67,12 @@ services:
       - ${CONFIG}/radarr:/config
       - ${STORAGE}:/storage
     ports:
-      - 7878:7878 # Radarr
+      - 7878:7878
+    restart: unless-stopped
 
   bazarr:
     container_name: bazarr
     image: linuxserver/bazarr
-    restart: unless-stopped
-    network_mode: service:vpn
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
@@ -84,6 +82,8 @@ services:
     volumes:
       - ${CONFIG}/bazarr:/config
       - ${STORAGE}:/storage
+    restart: unless-stopped
+    network_mode: service:vpn
     depends_on:
       - "vpn"
 
@@ -117,6 +117,6 @@ services:
     ports:
       - 6881:6881
       - 6881:6881/udp
-      - 8112:8112 # Deluge
-      - 58846:58846 # Deluge too
+      - 8112:8112
+      - 58846:58846
     restart: unless-stopped

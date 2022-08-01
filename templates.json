@@ -148,7 +148,7 @@
           "default": "/home/neeron/paperless"
         },
         {
-          "name": "URL",
+          "name": "HOSTNAME",
           "label": "Paperless-ngx Hostname",
           "description": "The hostname that Paperless-ngx will be accessible on",
           "default": "https://paperless.neeron.me"
@@ -179,16 +179,10 @@
           "default": "/home/neeron/pihole"
         },
         {
-          "name": "DNS_HOST",
+          "name": "HOSTNAME",
           "label": "DNS Hostname",
           "description": "The hostname that Pi-Hole will be accessible on",
           "default": "dns.bhatta"
-        },
-        {
-          "name": "PORT",
-          "label": "Web Port",
-          "description": "The port that Pi-Hole will be accessible on",
-          "default": "8081"
         }
       ]
     },
@@ -212,7 +206,7 @@
         {
           "name": "CONFIG",
           "label": "Config directory",
-          "description": "The directory to store configuration files for Pi-Hole",
+          "description": "The directory to store configuration files for Speedtest Tracker",
           "default": "/home/neeron/speedtest"
         },
         {
