@@ -1,0 +1,13 @@
+version: "3.4"
+services:
+  netbootxyz:
+    image: ghcr.io/netbootxyz/netbootxyz
+    container_name: netbootxyz
+    volumes:
+      - ${CONFIG}/config:/config # optional
+      - ${CONFIG}/assets:/assets # optional
+    ports:
+      - 3000:3000
+      - 69:69/udp
+      - 8082:80
+    restart: unless-stopped

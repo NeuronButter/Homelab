@@ -228,6 +228,25 @@
           "default": "1000"
         }
       ]
+    },
+    {
+      "type": 1,
+      "title": "netboot.xyz",
+      "description": "A PXE server that allows you to boot from the network",
+      "platform": "linux",
+      "logo": "https://raw.githubusercontent.com/walkxhub/dashboard-icons/master/png/netbootxyz.png",
+      "repository": {
+        "url": "https://github.com/NeuronButter/Homelab",
+        "stackfile": "stacks/netbootxyz.yaml"
+      },
+      "env": [
+        {
+          "name": "CONFIG",
+          "label": "Config directory",
+          "description": "The directory to store configuration files for netboot.xyz",
+          "default": "/home/neeron/netbootxyz"
+        }
+      ]
     }
   ]
 }
