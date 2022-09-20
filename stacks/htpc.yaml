@@ -5,11 +5,11 @@ services:
     cap_add:
       - NET_ADMIN
     environment:
-      - VPN_SERVICE_PROVIDER={VPN_PROVIDER}
+      - VPN_SERVICE_PROVIDER=${VPN_PROVIDER}
       - VPN_TYPE=wireguard
-      - WIREGUARD_PRIVATE_KEY={WG_PRIVKEY}
-      - WIREGUARD_ADDRESSES=10.1.0.0/16
-      - SERVER_COUNTRIES={WG_COUNTRY}
+      - WIREGUARD_PRIVATE_KEY=${WG_PRIVKEY}
+      - WIREGUARD_ADDRESSES=${WG_ADDRESSES}
+      - SERVER_COUNTRIES=${WG_COUNTRY}
       - TZ=${TZ}
     volumes:
       - ${CONFIG}/gluetun:/gluetun
