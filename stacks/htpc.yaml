@@ -1,24 +1,25 @@
 version: "3.4"
 services:
-  vpn:
-    container_name: vpn
-    image: dperson/openvpn-client:latest
-    environment:
-      - TZ=${TZ}
-      - "DNS=1.1.1.1"
-    volumes:
-      - /dev/net:/dev/net:z
+  gluetun:
+    image: qmcgaw/gluetun
+    devices:
       - /dev/net/tun:/dev/net/tun
-      - ${CONFIG}/vpn:/vpn
-    ports:
-      - 9696:9696 # Prowlarr
-      - 6767:6767 # Bazarr
-      - 8113:8113 # Qbittorrent
-    restart: unless-stopped
     cap_add:
-      - net_admin
-    security_opt:
-      - label:disable
+      - NET_ADMIN
+    environment:
+      - VPN_SERVICE_PROVIDER={VPN_PROVIDER}
+      - VPN_TYPE=wireguard
+      - WIREGUARD_PRIVATE_KEY={WG_PRIVKEY}
+      - WIREGUARD_ADDRESSES={WG_ADDRESSES}
+      - SERVER_COUNTRIES={WG_COUNTRY}
+      - TZ=${TZ}
+    ports:
+      - 8888:8888/tcp # HTTP proxy
+      - 8388:8388/tcp # Shadowsocks
+      - 8388:8388/udp # Shadowsocks
+    volumes:
+      - ${CONFIG}/gluetun:/gluetun
+
 
   prowlarr:
     image: lscr.io/linuxserver/prowlarr:develop
@@ -32,7 +33,7 @@ services:
     volumes:
       - ${CONFIG}/prowlarr:/config
     restart: unless-stopped
-    network_mode: service:vpn
+    network_mode: "service:gluetun"
     depends_on:
       - "vpn"
 
@@ -83,7 +84,7 @@ services:
       - ${CONFIG}/bazarr:/config
       - ${STORAGE}:/storage
     restart: unless-stopped
-    network_mode: service:vpn
+    network_mode: "service:gluetun"
     depends_on:
       - "vpn"
 
@@ -99,7 +100,7 @@ services:
       - ${CONFIG}/qbittorrent:/config
       - ${STORAGE}:/storage
     restart: unless-stopped
-    network_mode: service:vpn
+    network_mode: "service:gluetun"
     depends_on:
       - "vpn"
 

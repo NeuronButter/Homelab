@@ -53,6 +53,29 @@
           "label": "Name of theme",
           "description": "The name of the theme to use",
           "default": "hotpink"
+        },
+        {
+          "name": "VPN_PROVIDER",
+          "label": "VPN Provider",
+          "description": "Your VPN provider",
+          "default": "surfshark"
+        },
+        {
+          "name": "WG_PRIVKEY",
+          "label": "Wireguard Private Key",
+          "description": "Your Wireguard Private Key"
+        },
+        {
+          "name": "WG_ADDRESSES",
+          "label": "Wireguard Addresses",
+          "description": "Your local network LAN addresses",
+          "default": "10.1.0.0/16"
+        },
+        {
+          "name": "WG_COUNTRY",
+          "label": "Wireguard Country",
+          "description": "The country to set your VPN into",
+          "default": "Australia"
         }
       ]
     },
