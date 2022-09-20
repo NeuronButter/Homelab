@@ -11,6 +11,10 @@ services:
       - WIREGUARD_ADDRESSES=${WG_ADDRESSES}
       - SERVER_COUNTRIES=${WG_COUNTRY}
       - TZ=${TZ}
+    ports:
+      - 9696:9696 # Prowlarr
+      - 6767:6767 # Bazarr
+      - 8113:8113 # Qbittorrent
     volumes:
       - ${CONFIG}/gluetun:/gluetun
 
