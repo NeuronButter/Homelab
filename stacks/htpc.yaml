@@ -13,12 +13,9 @@ services:
       - WIREGUARD_ADDRESSES={WG_ADDRESSES}
       - SERVER_COUNTRIES={WG_COUNTRY}
       - TZ=${TZ}
-    ports:
-      - 8888:8888/tcp # HTTP proxy
-      - 8388:8388/tcp # Shadowsocks
-      - 8388:8388/udp # Shadowsocks
     volumes:
       - ${CONFIG}/gluetun:/gluetun
+    privileged: true
 
 
   prowlarr:
@@ -34,8 +31,6 @@ services:
       - ${CONFIG}/prowlarr:/config
     restart: unless-stopped
     network_mode: "service:gluetun"
-    depends_on:
-      - "vpn"
 
   sonarr:
     container_name: sonarr
@@ -85,8 +80,6 @@ services:
       - ${STORAGE}:/storage
     restart: unless-stopped
     network_mode: "service:gluetun"
-    depends_on:
-      - "vpn"
 
   qbittorrent:
     image: lscr.io/linuxserver/qbittorrent
@@ -101,8 +94,6 @@ services:
       - ${STORAGE}:/storage
     restart: unless-stopped
     network_mode: "service:gluetun"
-    depends_on:
-      - "vpn"
 
   deluge:
     image: lscr.io/linuxserver/deluge
