@@ -19,6 +19,7 @@ services:
       - 8113:8113 # Qbittorrent
     volumes:
       - ${CONFIG}/gluetun:/gluetun
+    restart: unless-stopped
 
 
   prowlarr:
