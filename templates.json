@@ -68,14 +68,19 @@
         {
           "name": "WG_ADDRESSES",
           "label": "Wireguard Addresses",
-          "description": "Your local network LAN addresses",
-          "default": "10.1.0.0/16"
+          "description": "The private network addresses to use for Wireguard"
         },
         {
           "name": "WG_COUNTRY",
           "label": "Wireguard Country",
           "description": "The country to set your VPN into",
           "default": "Australia"
+        },
+        {
+          "name": "FIREWALL_OUTBOUND_SUBNETS",
+          "label": "LAN Network",
+          "description": "The subnet of your LAN network to make available to the VPN-ed containers.",
+          "default": "10.1.0.0/16"
         }
       ]
     },

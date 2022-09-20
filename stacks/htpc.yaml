@@ -9,6 +9,7 @@ services:
       - VPN_TYPE=wireguard
       - WIREGUARD_PRIVATE_KEY=${WG_PRIVKEY}
       - WIREGUARD_ADDRESSES=${WG_ADDRESSES}
+      - FIREWALL_OUTBOUND_SUBNETS=${LAN_SUBNET}
       - SERVER_COUNTRIES=${WG_COUNTRY}
       - TZ=${TZ}
     ports:
