@@ -77,7 +77,7 @@
           "default": "Australia"
         },
         {
-          "name": "FIREWALL_OUTBOUND_SUBNETS",
+          "name": "LAN_SUBNETS",
           "label": "LAN Network",
           "description": "The subnet of your LAN network to make available to the VPN-ed containers.",
           "default": "10.1.0.0/16"
