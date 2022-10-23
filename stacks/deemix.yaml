@@ -1,0 +1,15 @@
+version: "3.4"
+services:
+  deemix:
+    container_name: deemix
+    image: registry.gitlab.com/bockiii/deemix-docker
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - DEEMIX_SINGLE_USER=${DEEMIX_SINGLE_USER}
+    volumes:
+      - '${CONFIG}:/config'
+      - '${STORAGE}:/downloads'
+    ports:
+      - 6595:6595
+    restart: unless-stopped

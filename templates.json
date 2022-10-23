@@ -269,6 +269,49 @@
           "default": "/home/neeron/netbootxyz"
         }
       ]
+    },
+    {
+      "type": 1,
+      "title": "Deemix",
+      "description": "A web client for Deemix",
+      "platform": "linux",
+      "logo": "https://raw.githubusercontent.com/walkxhub/dashboard-icons/master/png/deemix.png",
+      "repository": {
+        "url": "https://github.com/NeuronButter/Homelab",
+        "stackfile": "stacks/deemix.yaml"
+      },
+      "env": [
+        {
+          "name": "CONFIG",
+          "label": "Config directory",
+          "description": "The directory to store configuration files for Deemix",
+          "default": "/home/neeron/deemix"
+        },
+        {
+          "name": "STORAGE",
+          "label": "Storage directory",
+          "description": "The directory to store downloaded music",
+          "default": "/mnt/storage/deemix"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "description": "The user ID to run the container as",
+          "default": "1000"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "description": "The group ID to run the container as",
+          "default": "1000"
+        },
+        {
+          "name": "DEEMIX_SINGLE_USER",
+          "label": "Deemix Single User (bool)",
+          "description": "Whether to treat all Deemix users as a single user",
+          "default": "true"
+        }
+      ]
     }
   ]
 }
