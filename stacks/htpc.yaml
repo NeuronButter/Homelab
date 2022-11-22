@@ -14,8 +14,6 @@ services:
       - SERVER_COUNTRIES=${WG_COUNTRY}
       - TZ=${TZ}
     ports:
-      - 9696:9696 # Prowlarr
-      - 6767:6767 # Bazarr
       - 8113:8113 # Qbittorrent
     volumes:
       - ${CONFIG}/gluetun:/gluetun
@@ -32,9 +30,10 @@ services:
       - TP_THEME=${THEMENAME}
     volumes:
       - ${CONFIG}/prowlarr:/config
+    ports:
+      - 9696:9696
     restart: unless-stopped
-    network_mode: "service:gluetun"
-
+    
   sonarr:
     container_name: sonarr
     image: linuxserver/sonarr:amd64-latest
@@ -81,8 +80,9 @@ services:
     volumes:
       - ${CONFIG}/bazarr:/config
       - ${STORAGE}:/storage
+    ports:
+      - 6767:6767
     restart: unless-stopped
-    network_mode: "service:gluetun"
 
   lidarr:
     container_name: lidarr
