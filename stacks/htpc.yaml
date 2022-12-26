@@ -84,23 +84,6 @@ services:
       - 6767:6767
     restart: unless-stopped
 
-  lidarr:
-    container_name: lidarr
-    image: linuxserver/lidarr:amd64-latest
-    environment:
-      - PUID=${PUID}
-      - PGID=${PGID}
-      - TZ=${TZ}
-      - DOCKER_MODS=${THEMEPKG}:lidarr
-      - TP_THEME=${THEMENAME}
-    volumes:
-      - /etc/localtime:/etc/localtime:ro
-      - ${CONFIG}/lidarr:/config
-      - ${STORAGE}:/storage
-    ports:
-      - 8686:8686
-    restart: unless-stopped
-
   qbittorrent:
     image: lscr.io/linuxserver/qbittorrent
     container_name: qbittorrent
