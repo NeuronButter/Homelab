@@ -97,6 +97,11 @@ services:
       - ${STORAGE}:/storage
     restart: unless-stopped
     network_mode: "service:gluetun"
+    healthcheck:
+        test: ping -c 1 www.google.com || exit 1
+        interval: 30s
+        timeout: 10s
+        retries: 3
 
   deluge:
     image: lscr.io/linuxserver/deluge
