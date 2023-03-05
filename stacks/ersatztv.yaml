@@ -11,3 +11,10 @@ services:
     ports:
       - 8409:8409
     restart: unless-stopped
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
