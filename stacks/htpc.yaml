@@ -127,6 +127,7 @@ services:
     environment:
       - LOG_LEVEL=debug
       - TZ=${TZ}
+      - NAME=NEERON
     ports:
       - 5055:5055
     volumes:
