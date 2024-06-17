@@ -98,6 +98,8 @@ services:
       - PGID=${PGID}
       - TZ=${TZ}
       - WEBUI_PORT=8113
+      - DOCKER_MODS=ghcr.io/t-anc/gsp-qbittorent-gluetun-sync-port-mod:main
+      - GSP_QBT_ADDR=localhost:8113
     volumes:
       - ${CONFIG}/qbittorrent:/config
       - ${STORAGE}:/storage
@@ -108,6 +110,10 @@ services:
         interval: 30s
         timeout: 10s
         retries: 3
+    depends_on:
+      gluetun:
+        condition: service_healthy
+
 
   deluge:
     image: lscr.io/linuxserver/deluge
